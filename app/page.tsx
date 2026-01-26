@@ -12,6 +12,10 @@ import {
   Sparkles,
   Code2,
   Palette,
+  Rocket,
+  PieChart,
+  Layout,
+  PenTool,
 } from 'lucide-react';
 
 export default function Home() {
@@ -357,56 +361,210 @@ export default function Home() {
 
       {/* Pricing Section */}
       <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">The Founder Launchpad Bundle</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Paket Layanan Kami</h2>
             <p className="text-muted-foreground text-lg">
-              Everything you need to launch successfully, in one package.
+              Pilih paket yang sesuai dengan kebutuhan startup Anda
             </p>
           </div>
 
-          <div
-            id="pricing-card"
-            data-animate
-            className={`p-8 md:p-12 rounded-2xl border border-primary/30 bg-gradient-to-b from-card to-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 ${
-              isVisible['pricing-card'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
-          >
-            <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-cyan-400/20 to-purple-600/20 rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+          {/* Featured Bundle Card */}
+          <div className="mb-12">
+            <div
+              id="pricing-bundle"
+              data-animate
+              className={`p-8 md:p-12 rounded-2xl border-2 border-primary/60 bg-gradient-to-b from-card to-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 relative ${
+                isVisible['pricing-bundle'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              }`}
+            >
+              <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-cyan-400/20 to-purple-600/20 rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
 
-            <div className="relative">
-              <div className="text-center mb-8">
-                <div className="flex items-center justify-center gap-4">
-                  <span className="text-3xl text-muted-foreground line-through">Rp 8.5M</span>
-                  <span className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                    Rp 6.5M
-                  </span>
+              {/* Best Value Badge */}
+              <div className="absolute top-6 right-6 flex items-center gap-2">
+                <div className="px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full">
+                  <span className="text-sm font-bold text-background">Best Value</span>
                 </div>
-                <p className="text-muted-foreground mt-2">One-time investment</p>
               </div>
 
-              <div className="space-y-4 mb-8">
-                {[
-                  'Pitch Deck Analysis & Optimization',
-                  'High-Performance Website Development',
-                  'Complete Brand Identity Design',
-                  ' 2-Week Turnaround Guarantee',
-                  'Investor Presentation Coaching',
-                  '3 Months Post-Launch Support',
-                  'Marketing Collateral Package',
-                  'SEO & Analytics Setup',
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground">{item}</span>
+              <div className="relative">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Rocket className="w-7 h-7 text-white" />
                   </div>
-                ))}
-              </div>
+                  <div>
+                    <h3 className="text-3xl md:text-4xl font-bold">FOUNDER LAUNCHPAD</h3>
+                    <p className="text-muted-foreground">Pitch Deck + Landing Page + Logo</p>
+                  </div>
+                </div>
 
-              <Button className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-background font-semibold py-6 rounded-full text-base">
-                Book Your Launchpad Session
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+                <div className="mb-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="text-3xl font-bold text-primary bg-primary/10 px-6 py-3 rounded-lg">
+                      Hemat Rp 1.500.000
+                    </span>
+                  </div>
+                  <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">
+                    Rp 6.500.000
+                  </div>
+                  <p className="text-muted-foreground">One-time investment</p>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  {['Brand Identity', 'Investor Pitch Deck', 'Landing Page'].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                      <span className="text-foreground font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-background font-semibold py-6 rounded-full text-base">
+                  Pilih Paket Ini
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Individual Service Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Pitch Deck Card */}
+            <div
+              id="pricing-pitch"
+              data-animate
+              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-secondary/50 hover:shadow-lg ${
+                isVisible['pricing-pitch'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+            >
+              <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full filter blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
+
+              <div className="relative">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <PieChart className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="px-3 py-1 bg-purple-500/20 rounded-full border border-purple-500/30">
+                    <span className="text-xs font-semibold text-purple-300">Gratis Konsultasi</span>
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold mb-2">INVESTOR READY PITCH DECK</h3>
+                <div className="text-2xl font-bold text-primary mb-6">Mulai dari Rp 2.500.000</div>
+
+                <div className="space-y-3 mb-8">
+                  {[
+                    'Story Arc Audit',
+                    'High Impact Slides',
+                    'Data Visualization Makeover',
+                    'Revisi 2x Mayor, Unl Minor',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                      <span className="text-sm text-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button
+                  variant="outline"
+                  className="w-full border-border/50 text-foreground hover:bg-secondary/10 rounded-full font-semibold bg-transparent"
+                >
+                  Pilih Paket Ini
+                </Button>
+              </div>
+            </div>
+
+            {/* Landing Page Card */}
+            <div
+              id="pricing-landing"
+              data-animate
+              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-primary/50 hover:shadow-lg ${
+                isVisible['pricing-landing'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+            >
+              <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-400/10 rounded-full filter blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
+
+              <div className="relative">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Layout className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="px-3 py-1 bg-primary/20 rounded-full border border-primary/30">
+                    <span className="text-xs font-semibold text-cyan-300">Gratis Hosting & Domain 1 Tahun</span>
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold mb-2">HIGH PERFORMANCE LANDING PAGE</h3>
+                <div className="text-2xl font-bold text-primary mb-6">Mulai dari Rp 3.500.000</div>
+
+                <div className="space-y-3 mb-8">
+                  {[
+                    'Mobile First Approach',
+                    'Copywriting & CTA',
+                    'Basic SEO Setup',
+                    'Clean Code',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                      <span className="text-sm text-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button
+                  variant="outline"
+                  className="w-full border-border/50 text-foreground hover:bg-primary/10 rounded-full font-semibold bg-transparent"
+                >
+                  Pilih Paket Ini
+                </Button>
+              </div>
+            </div>
+
+            {/* Visual Identity Card */}
+            <div
+              id="pricing-visual"
+              data-animate
+              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-secondary/50 hover:shadow-lg ${
+                isVisible['pricing-visual'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+            >
+              <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full filter blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
+
+              <div className="relative">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <PenTool className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="px-3 py-1 bg-purple-500/20 rounded-full border border-purple-500/30">
+                    <span className="text-xs font-semibold text-purple-300">Best for New Brands</span>
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold mb-2">VISUAL IDENTITY (LOGO)</h3>
+                <div className="text-2xl font-bold text-primary mb-6">Mulai dari Rp 2.000.000</div>
+
+                <div className="space-y-3 mb-8">
+                  {[
+                    'Filosofi',
+                    '3 Konsep Logo',
+                    'Mockup Preview',
+                    '3 Revisi Mayor & Bebas Revisi Minor',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                      <span className="text-sm text-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button
+                  variant="outline"
+                  className="w-full border-border/50 text-foreground hover:bg-secondary/10 rounded-full font-semibold bg-transparent"
+                >
+                  Pilih Paket Ini
+                </Button>
+              </div>
             </div>
           </div>
         </div>
