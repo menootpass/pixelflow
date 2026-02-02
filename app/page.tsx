@@ -133,7 +133,7 @@ export default function Home({ params, searchParams }: HomeProps) {
               <Sparkles className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              PixelFlow
+              Toko Desain
             </span>
           </div>
 
@@ -718,7 +718,7 @@ export default function Home({ params, searchParams }: HomeProps) {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Sparkles className="w-5 h-5 text-primary" />
-                <span className="font-bold">PixelFlow</span>
+                <span className="font-bold">Toko Desain</span>
               </div>
               <p className="text-sm text-muted-foreground">
                 Transforming founder dreams into market reality.
@@ -751,7 +751,7 @@ export default function Home({ params, searchParams }: HomeProps) {
           </div>
 
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-            <p>&copy; 2024 PixelFlow. All rights reserved.</p>
+            <p>&copy; 2024 Toko Desain. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-primary">Privacy Policy</a>
               <a href="#" className="hover:text-primary">Terms of Service</a>
