@@ -37,11 +37,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode
+  params?: Promise<Record<string, string | string[]>>
 }>) {
+  if (params) await params
   return (
     <html lang="en" className="dark">
       <body className={`font-sans antialiased`}>

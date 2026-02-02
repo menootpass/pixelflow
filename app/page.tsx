@@ -1,6 +1,63 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { use, useState, useEffect } from 'react';
+
+const WHATSAPP_NUMBER = '6285179726257';
+
+const WHATSAPP_MESSAGES = {
+  founderLaunchpad: `Halo, saya tertarik untuk memesan paket Founder Launchpad.
+
+Nama brand/startup:
+Jenis bisnis:
+Tujuan (launch / pitching / validasi ide):
+
+Mohon info detail proses pengerjaan, timeline, dan hal yang perlu saya siapkan.
+Terima kasih.`,
+  landingPage: `Halo, saya tertarik untuk memesan paket Landing Page.
+
+Nama brand/usaha:
+Produk/jasa yang ditawarkan:
+Tujuan landing page (jualan, lead, waitlist, company profile, dll):
+
+Mohon info alur pengerjaan, estimasi waktu, dan kebutuhan materi dari saya.
+Terima kasih.`,
+  visualIdentity: `Halo, saya tertarik untuk memesan paket Visual Identity.
+
+Nama brand:
+Bidang usaha:
+Target market utama:
+Apakah brand sudah memiliki logo / belum:
+
+Mohon info ruang lingkup pengerjaan dan timeline pengerjaan paket ini.
+Terima kasih.`,
+  pitchDeck: `Halo, saya tertarik untuk memesan paket Investor Ready Pitch Deck.
+
+Nama startup:
+Stage bisnis (ide / MVP / sudah jalan):
+Tujuan pitch deck (investor, kompetisi, partner, dll):
+
+Mohon info proses pengerjaan, kebutuhan data yang harus saya siapkan, serta estimasi waktu pengerjaan.
+Terima kasih.`,
+  presentationPolishing: `Halo, saya tertarik untuk memesan paket Presentation Polishing & Design.
+
+Nama brand/usaha:
+Jenis presentasi:
+Tujuan presentasi (investor, klien, internal, dll):
+
+Mohon info proses pengerjaan, estimasi waktu, dan materi yang perlu saya siapkan.
+Terima kasih.`,
+  consultation: `Nama:
+Nama brand / usaha / startup:
+Jenis kebutuhan (konsultasi presentasi, pitch deck, landing page, visual identity, dll):
+Tujuan utama (pitching, proposal, presentasi klien, launch, dll):
+
+Mohon info ketersediaan jadwal konsultasi terdekat dan mekanisme booking slot.
+Terima kasih.`,
+};
+
+function getWhatsAppUrl(message: string) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
 import { Button } from '@/components/ui/button';
 import {
   BarChart3,
@@ -16,9 +73,17 @@ import {
   PieChart,
   Layout,
   PenTool,
+  Presentation,
 } from 'lucide-react';
 
-export default function Home() {
+type HomeProps = {
+  params?: Promise<Record<string, string | string[]>>
+  searchParams?: Promise<Record<string, string | string[] | undefined>>
+}
+
+export default function Home({ params, searchParams }: HomeProps) {
+  if (params) use(params)
+  if (searchParams) use(searchParams)
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
 
@@ -30,24 +95,33 @@ export default function Home() {
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px',
+      threshold: 0.05,
+      rootMargin: '0px 0px -80px 0px',
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setIsVisible((prev) => ({ ...prev, [entry.target.id]: true }));
+          const id = (entry.target as HTMLElement).id
+          if (id === 'pricing-cards') {
+            setIsVisible((prev) => ({
+              ...prev,
+              'pricing-pitch': true,
+              'pricing-landing': true,
+              'pricing-visual': true,
+              'pricing-presentation': true,
+            }))
+          } else if (id) {
+            setIsVisible((prev) => ({ ...prev, [id]: true }))
+          }
         }
-      });
-    }, observerOptions);
+      })
+    }, observerOptions)
 
-    document.querySelectorAll('[data-animate]').forEach((el) => {
-      observer.observe(el);
-    });
+    document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el))
 
-    return () => observer.disconnect();
-  }, []);
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div className="bg-background text-foreground">
@@ -75,10 +149,10 @@ export default function Home() {
             </a>
           </div>
 
-          <Button
-            className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-background font-semibold rounded-full"
-          >
-            Book Free Audit
+          <Button asChild className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-background font-semibold rounded-full">
+            <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer">
+              Book Free Audit
+            </a>
           </Button>
         </div>
       </nav>
@@ -111,15 +185,16 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
-            <Button className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-background font-semibold px-8 py-6 rounded-full text-base">
-              Amankan Slot Konsultasi
-              <ArrowRight className="w-4 h-4 ml-2" />
+            <Button asChild className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-background font-semibold px-8 py-6 rounded-full text-base">
+              <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.consultation)} target="_blank" rel="noopener noreferrer">
+                Amankan Slot Konsultasi
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
             </Button>
-            <Button
-              variant="outline"
-              className="border-primary/50 text-foreground hover:bg-primary/10 px-8 py-6 rounded-full text-base bg-transparent"
-            >
-              Lihat Paket Launchpad
+            <Button asChild variant="outline" className="border-primary/50 text-foreground hover:bg-primary/10 px-8 py-6 rounded-full text-base bg-transparent">
+              <a href="#pricing">
+                Lihat Paket Launchpad
+              </a>
             </Button>
           </div>
 
@@ -419,16 +494,22 @@ export default function Home() {
                   ))}
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-background font-semibold py-6 rounded-full text-base">
-                  Pilih Paket Ini
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                <Button asChild className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-background font-semibold py-6 rounded-full text-base">
+                  <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.founderLaunchpad)} target="_blank" rel="noopener noreferrer">
+                    Pilih Paket Ini
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
                 </Button>
               </div>
             </div>
           </div>
 
           {/* Individual Service Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            id="pricing-cards"
+            data-animate
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          >
             {/* Pitch Deck Card */}
             <div
               id="pricing-pitch"
@@ -457,7 +538,7 @@ export default function Home() {
                     'Story Arc Audit',
                     'High Impact Slides',
                     'Data Visualization Makeover',
-                    'Revisi 2x Mayor, Unl Minor',
+                    'Revisi 2x Mayor, Unlimited Minor',
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
@@ -466,11 +547,10 @@ export default function Home() {
                   ))}
                 </div>
 
-                <Button
-                  variant="outline"
-                  className="w-full border-border/50 text-foreground hover:bg-secondary/10 rounded-full font-semibold bg-transparent"
-                >
-                  Pilih Paket Ini
+                <Button asChild variant="outline" className="w-full border-border/50 text-foreground hover:bg-secondary/10 rounded-full font-semibold bg-transparent">
+                  <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.pitchDeck)} target="_blank" rel="noopener noreferrer">
+                    Pilih Paket Ini
+                  </a>
                 </Button>
               </div>
             </div>
@@ -512,11 +592,10 @@ export default function Home() {
                   ))}
                 </div>
 
-                <Button
-                  variant="outline"
-                  className="w-full border-border/50 text-foreground hover:bg-primary/10 rounded-full font-semibold bg-transparent"
-                >
-                  Pilih Paket Ini
+                <Button asChild variant="outline" className="w-full border-border/50 text-foreground hover:bg-primary/10 rounded-full font-semibold bg-transparent">
+                  <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.landingPage)} target="_blank" rel="noopener noreferrer">
+                    Pilih Paket Ini
+                  </a>
                 </Button>
               </div>
             </div>
@@ -558,11 +637,56 @@ export default function Home() {
                   ))}
                 </div>
 
-                <Button
-                  variant="outline"
-                  className="w-full border-border/50 text-foreground hover:bg-secondary/10 rounded-full font-semibold bg-transparent"
-                >
-                  Pilih Paket Ini
+                <Button asChild variant="outline" className="w-full border-border/50 text-foreground hover:bg-secondary/10 rounded-full font-semibold bg-transparent">
+                  <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.visualIdentity)} target="_blank" rel="noopener noreferrer">
+                    Pilih Paket Ini
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            {/* Presentation Polishing & Design Card */}
+            <div
+              id="pricing-presentation"
+              data-animate
+              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-primary/50 hover:shadow-lg ${
+                isVisible['pricing-presentation'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+            >
+              <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-400/10 rounded-full filter blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
+
+              <div className="relative">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Presentation className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="px-3 py-1 bg-primary/20 rounded-full border border-primary/30">
+                    <span className="text-xs font-semibold text-cyan-300">Gratis Konsultasi</span>
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold mb-2">PRESENTATION POLISHING & DESIGN</h3>
+                <div className="text-2xl font-bold text-primary mb-6">Mulai dari Rp 150.000</div>
+
+                <div className="space-y-3 mb-8">
+                  {[
+                    'Dokumen/paragraf menjadi poin-poin slide',
+                    'Menyusun alur presentasi agar lebih jelas dan rapi',
+                    'Desain slide profesional',
+                    '1x revisi',
+                    'File PDF + link Canva',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                      <span className="text-sm text-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button asChild variant="outline" className="w-full border-border/50 text-foreground hover:bg-primary/10 rounded-full font-semibold bg-transparent">
+                  <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.presentationPolishing)} target="_blank" rel="noopener noreferrer">
+                    Pilih Paket Ini
+                  </a>
                 </Button>
               </div>
             </div>
@@ -578,9 +702,11 @@ export default function Home() {
             Join 150+ founders who transformed their vision into reality. Let's build something extraordinary together.
           </p>
 
-          <Button className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-background font-semibold px-8 py-6 rounded-full text-base">
-            Chat Kami di WhatsApp
-            <MessageCircle className="w-4 h-4 ml-2" />
+          <Button asChild className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-background font-semibold px-8 py-6 rounded-full text-base">
+            <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.consultation)} target="_blank" rel="noopener noreferrer">
+              Chat Kami di WhatsApp
+              <MessageCircle className="w-4 h-4 ml-2" />
+            </a>
           </Button>
         </div>
       </section>
@@ -635,9 +761,15 @@ export default function Home() {
       </footer>
 
       {/* Floating WhatsApp Button */}
-      <button className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all hover:scale-110 z-40">
+      <a
+        href={getWhatsAppUrl(WHATSAPP_MESSAGES.consultation)}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all hover:scale-110 z-40"
+        aria-label="Chat via WhatsApp"
+      >
         <MessageCircle className="w-6 h-6 text-white" />
-      </button>
+      </a>
     </div>
   );
 }
