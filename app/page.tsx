@@ -53,6 +53,14 @@ Tujuan utama (pitching, proposal, presentasi klien, launch, dll):
 
 Mohon info ketersediaan jadwal konsultasi terdekat dan mekanisme booking slot.
 Terima kasih.`,
+  starterBundle: `Halo, saya tertarik untuk memesan paket Starter Bundle: Lite Landing & Personal Website.
+
+Nama:
+Nama brand / usaha:
+Jenis website yang diinginkan (personal, portfolio, landing page sederhana):
+
+Mohon info detail proses pengerjaan, timeline, dan hal yang perlu saya siapkan.
+Terima kasih.`,
 };
 
 function getWhatsAppUrl(message: string) {
@@ -66,6 +74,7 @@ import {
   CheckCircle2,
   MessageCircle,
   ArrowRight,
+  ExternalLink,
   Sparkles,
   Code2,
   Palette,
@@ -74,6 +83,7 @@ import {
   Layout,
   PenTool,
   Presentation,
+  Globe,
 } from 'lucide-react';
 
 type HomeProps = {
@@ -106,6 +116,7 @@ export default function Home({ params, searchParams }: HomeProps) {
           if (id === 'pricing-cards') {
             setIsVisible((prev) => ({
               ...prev,
+              'pricing-starter': true,
               'pricing-pitch': true,
               'pricing-landing': true,
               'pricing-visual': true,
@@ -146,6 +157,9 @@ export default function Home({ params, searchParams }: HomeProps) {
             </a>
             <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
               Pricing
+            </a>
+            <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">
+              Portfolio
             </a>
           </div>
 
@@ -231,9 +245,8 @@ export default function Home({ params, searchParams }: HomeProps) {
             <div
               id="problem-1"
               data-animate
-              className={`p-8 rounded-2xl bg-card/50 backdrop-blur border border-border/50 transition-all duration-700 transform ${
-                isVisible['problem-1'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`p-8 rounded-2xl bg-card/50 backdrop-blur border border-border/50 transition-all duration-700 transform ${isVisible['problem-1'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
             >
               <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center mb-4">
                 <BarChart3 className="w-6 h-6 text-white" />
@@ -248,9 +261,8 @@ export default function Home({ params, searchParams }: HomeProps) {
             <div
               id="problem-2"
               data-animate
-              className={`p-8 rounded-2xl bg-card/50 backdrop-blur border border-border/50 transition-all duration-700 transform ${
-                isVisible['problem-2'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`p-8 rounded-2xl bg-card/50 backdrop-blur border border-border/50 transition-all duration-700 transform ${isVisible['problem-2'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
             >
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-white" />
@@ -265,9 +277,8 @@ export default function Home({ params, searchParams }: HomeProps) {
             <div
               id="problem-3"
               data-animate
-              className={`p-8 rounded-2xl bg-card/50 backdrop-blur border border-border/50 transition-all duration-700 transform ${
-                isVisible['problem-3'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`p-8 rounded-2xl bg-card/50 backdrop-blur border border-border/50 transition-all duration-700 transform ${isVisible['problem-3'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
             >
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center mb-4">
                 <TrendingUp className="w-6 h-6 text-white" />
@@ -298,9 +309,8 @@ export default function Home({ params, searchParams }: HomeProps) {
             <div
               id="solution-1"
               data-animate
-              className={`group p-8 rounded-2xl border border-border/50 bg-gradient-to-b from-card to-card/50 backdrop-blur hover:border-primary/50 transition-all duration-500 transform ${
-                isVisible['solution-1'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`group p-8 rounded-2xl border border-border/50 bg-gradient-to-b from-card to-card/50 backdrop-blur hover:border-primary/50 transition-all duration-500 transform ${isVisible['solution-1'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
@@ -332,9 +342,8 @@ export default function Home({ params, searchParams }: HomeProps) {
             <div
               id="solution-2"
               data-animate
-              className={`group p-8 rounded-2xl border border-border/50 bg-gradient-to-b from-card to-card/50 backdrop-blur hover:border-secondary/50 transition-all duration-500 transform ${
-                isVisible['solution-2'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`group p-8 rounded-2xl border border-border/50 bg-gradient-to-b from-card to-card/50 backdrop-blur hover:border-secondary/50 transition-all duration-500 transform ${isVisible['solution-2'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
@@ -366,9 +375,8 @@ export default function Home({ params, searchParams }: HomeProps) {
             <div
               id="solution-3"
               data-animate
-              className={`group p-8 rounded-2xl border border-border/50 bg-gradient-to-b from-card to-card/50 backdrop-blur hover:border-cyan-400/50 transition-all duration-500 transform ${
-                isVisible['solution-3'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`group p-8 rounded-2xl border border-border/50 bg-gradient-to-b from-card to-card/50 backdrop-blur hover:border-cyan-400/50 transition-all duration-500 transform ${isVisible['solution-3'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
@@ -449,9 +457,8 @@ export default function Home({ params, searchParams }: HomeProps) {
             <div
               id="pricing-bundle"
               data-animate
-              className={`p-8 md:p-12 rounded-2xl border-2 border-primary/60 bg-gradient-to-b from-card to-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 relative ${
-                isVisible['pricing-bundle'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-              }`}
+              className={`p-8 md:p-12 rounded-2xl border-2 border-primary/60 bg-gradient-to-b from-card to-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 relative ${isVisible['pricing-bundle'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                }`}
             >
               <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-cyan-400/20 to-purple-600/20 rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
 
@@ -508,15 +515,59 @@ export default function Home({ params, searchParams }: HomeProps) {
           <div
             id="pricing-cards"
             data-animate
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8"
           >
+            {/* Starter Bundle Card */}
+            <div
+              id="pricing-starter"
+              data-animate
+              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-emerald-400/50 hover:shadow-lg ${isVisible['pricing-starter'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+            >
+              <div className="absolute top-0 left-0 w-32 h-32 bg-emerald-400/10 rounded-full filter blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
+
+              <div className="relative">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Globe className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="px-3 py-1 bg-emerald-500/20 rounded-full border border-emerald-500/30">
+                    <span className="text-xs font-semibold text-emerald-300">Gratis Konsultasi</span>
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold mb-2">STARTER BUNDLE</h3>
+                <p className="text-sm text-muted-foreground mb-3">Lite Landing & Personal Website</p>
+                <div className="text-2xl font-bold text-primary mb-6">Mulai dari Rp 250.000</div>
+
+                <div className="space-y-3 mb-8">
+                  {[
+                    'Desain Web Modern',
+                    '1 Halaman + Bonus 1',
+                    'Free Hosting',
+                    'Revisi 2 Kali Minor',
+                    'CTA Optimization',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                      <span className="text-sm text-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button asChild variant="outline" className="w-full border-border/50 text-foreground hover:bg-emerald-500/10 rounded-full font-semibold bg-transparent">
+                  <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.starterBundle)} target="_blank" rel="noopener noreferrer">
+                    Pilih Paket Ini
+                  </a>
+                </Button>
+              </div>
+            </div>
             {/* Pitch Deck Card */}
             <div
               id="pricing-pitch"
               data-animate
-              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-secondary/50 hover:shadow-lg ${
-                isVisible['pricing-pitch'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-secondary/50 hover:shadow-lg ${isVisible['pricing-pitch'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
             >
               <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full filter blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
 
@@ -559,9 +610,8 @@ export default function Home({ params, searchParams }: HomeProps) {
             <div
               id="pricing-landing"
               data-animate
-              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-primary/50 hover:shadow-lg ${
-                isVisible['pricing-landing'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-primary/50 hover:shadow-lg ${isVisible['pricing-landing'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
             >
               <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-400/10 rounded-full filter blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
 
@@ -604,9 +654,8 @@ export default function Home({ params, searchParams }: HomeProps) {
             <div
               id="pricing-visual"
               data-animate
-              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-secondary/50 hover:shadow-lg ${
-                isVisible['pricing-visual'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-secondary/50 hover:shadow-lg ${isVisible['pricing-visual'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
             >
               <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full filter blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
 
@@ -649,9 +698,8 @@ export default function Home({ params, searchParams }: HomeProps) {
             <div
               id="pricing-presentation"
               data-animate
-              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-primary/50 hover:shadow-lg ${
-                isVisible['pricing-presentation'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-primary/50 hover:shadow-lg ${isVisible['pricing-presentation'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
             >
               <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-400/10 rounded-full filter blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
 
@@ -690,6 +738,66 @@ export default function Home({ params, searchParams }: HomeProps) {
                 </Button>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Portofolio Kami</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Beberapa project terbaik yang telah kami kerjakan untuk klien kami.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Portfolio Item - Gemitra */}
+            <a
+              href="https://gemitra.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="portfolio-gemitra"
+              data-animate
+              className={`group block rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transition-all duration-700 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 transform ${isVisible['portfolio-gemitra'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+            >
+              {/* Website Preview */}
+              <div className="relative overflow-hidden aspect-video bg-gradient-to-br from-card to-background">
+                <img
+                  src="https://image.thum.io/get/width/600/crop/400/https://gemitra.com"
+                  alt="Gemitra.com - Hidden Gems Tourism Website"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full text-background font-semibold">
+                    <span>Lihat Website</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Card Info */}
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Gemitra Jogja</h3>
+                  <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Hidden Gems Tourism — Platform wisata lokal Yogyakarta
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Next.js', 'Responsive', 'SEO', 'Interactive Map'].map((tag) => (
+                    <span key={tag} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </section>
