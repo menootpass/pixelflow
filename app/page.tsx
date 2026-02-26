@@ -120,7 +120,7 @@ export default function Home({ params, searchParams }: HomeProps) {
               'pricing-pitch': true,
               'pricing-landing': true,
               'pricing-visual': true,
-              'pricing-presentation': true,
+              'testimonials': true,
             }))
           } else if (id) {
             setIsVisible((prev) => ({ ...prev, [id]: true }))
@@ -150,22 +150,22 @@ export default function Home({ params, searchParams }: HomeProps) {
 
           <div className="hidden md:flex items-center gap-8">
             <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">
-              Services
+              Layanan
             </a>
             <a href="#process" className="text-sm font-medium hover:text-primary transition-colors">
-              Process
+              Proses
             </a>
             <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
-              Pricing
+              Paket
             </a>
             <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">
-              Portfolio
+              Portofolio
             </a>
           </div>
 
           <Button asChild className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-background font-semibold rounded-full">
             <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer">
-              Book Free Audit
+              Audit Gratis Sekarang
             </a>
           </Button>
         </div>
@@ -183,19 +183,19 @@ export default function Home({ params, searchParams }: HomeProps) {
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
           <div className="mb-8 inline-block">
             <span className="text-sm font-semibold text-primary bg-primary/10 px-4 py-2 rounded-full">
-              🚀 Launch Your Vision
+              🚀 Wujudkan Visi Anda
             </span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-balance leading-tight">
-            Transform Your Startup
+            Ubah Startup Anda
             <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Into Market Reality
+              Menjadi Realitas Pasar
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed text-balance">
-            Complete founder consultation bundle: pitch deck analysis, high-performance web design, and curated branding. Everything you need to impress investors and customers.
+            Bundel konsultasi lengkap untuk founder: analisis pitch deck, desain web berperforma tinggi, dan branding pilihan. Semua yang Anda butuhkan untuk menarik hati investor serta pelanggan.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
@@ -213,18 +213,18 @@ export default function Home({ params, searchParams }: HomeProps) {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
-            <div className="p-6 rounded-xl bg-card/50 backdrop-blur border border-border/50">
+          <div className="flex items-center justify-center">
+            {/* <div className="p-6 rounded-xl bg-card/50 backdrop-blur border border-border/50">
               <div className="text-3xl font-bold text-primary mb-2">150+</div>
-              <p className="text-muted-foreground">Startups Launched</p>
+              <p className="text-muted-foreground">Startup Diluncurkan</p>
             </div>
             <div className="p-6 rounded-xl bg-card/50 backdrop-blur border border-border/50">
-              <div className="text-3xl font-bold text-secondary mb-2">$2.5B</div>
-              <p className="text-muted-foreground">Funding Raised</p>
-            </div>
+              <div className="text-3xl font-bold text-secondary mb-2">$2.5M+</div>
+              <p className="text-muted-foreground">Pendanaan Terkumpul</p>
+            </div> */}
             <div className="p-6 rounded-xl bg-card/50 backdrop-blur border border-border/50">
-              <div className="text-3xl font-bold text-primary mb-2">98%</div>
-              <p className="text-muted-foreground">Client Satisfaction</p>
+              <div className="text-3xl font-bold text-primary mb-2">100%</div>
+              <p className="text-muted-foreground">Kepuasan Klien</p>
             </div>
           </div>
         </div>
@@ -236,7 +236,7 @@ export default function Home({ params, searchParams }: HomeProps) {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Masalah Founder Saat Ini</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              We understand the challenges you face when launching your startup.
+              Kami memahami tantangan berat yang Anda hadapi saat meluncurkan startup.
             </p>
           </div>
 
@@ -251,9 +251,9 @@ export default function Home({ params, searchParams }: HomeProps) {
               <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center mb-4">
                 <BarChart3 className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Vendor Chaos</h3>
+              <h3 className="text-xl font-bold mb-2">Kekacauan Vendor</h3>
               <p className="text-muted-foreground">
-                Managing multiple agencies and contractors is expensive and inefficient.
+                Mengelola banyak agensi dan kontraktor itu mahal dan tidak efisien.
               </p>
             </div>
 
@@ -267,9 +267,9 @@ export default function Home({ params, searchParams }: HomeProps) {
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Bad Decks</h3>
+              <h3 className="text-xl font-bold mb-2">Deck yang Lemah</h3>
               <p className="text-muted-foreground">
-                Weak pitch decks fail to capture investor attention and miss funding opportunities.
+                Pitch deck yang kurang menarik gagal memikat investor dan melewatkan peluang pendanaan.
               </p>
             </div>
 
@@ -283,9 +283,9 @@ export default function Home({ params, searchParams }: HomeProps) {
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center mb-4">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Slow Websites</h3>
+              <h3 className="text-xl font-bold mb-2">Website Lambat</h3>
               <p className="text-muted-foreground">
-                Outdated web presence loses customer trust and hurts your conversion rates.
+                Kehadiran web yang usang menghilangkan kepercayaan pelanggan dan merusak tingkat konversi Anda.
               </p>
             </div>
           </div>
@@ -297,10 +297,10 @@ export default function Home({ params, searchParams }: HomeProps) {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Memkenalkan: The Founder Launchpad <span className="text-2xl">🚀</span>
+              Memperkenalkan: The Founder Launchpad <span className="text-2xl">🚀</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A comprehensive solution that combines three essential services into one powerful package.
+              Solusi komprehensif yang menggabungkan tiga layanan esensial dalam satu paket yang kuat.
             </p>
           </div>
 
@@ -319,20 +319,20 @@ export default function Home({ params, searchParams }: HomeProps) {
                 </div>
                 <h3 className="text-2xl font-bold mb-3">Pitch Deck Analyst</h3>
                 <p className="text-muted-foreground mb-4">
-                  Expert analysis and refinement of your pitch deck to capture investor attention and secure funding.
+                  Analisis ahli dan penyempurnaan pitch deck Anda untuk memikat perhatian investor dan mengamankan pendanaan.
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
-                    <span>Investor-ready deck</span>
+                    <span>Deck siap presentasi investor</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
-                    <span>Narrative optimization</span>
+                    <span>Optimasi narasi</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
-                    <span>Market research</span>
+                    <span>Riset pasar mendalam</span>
                   </li>
                 </ul>
               </div>
@@ -350,22 +350,22 @@ export default function Home({ params, searchParams }: HomeProps) {
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Code2 className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">High-Performance Web</h3>
+                <h3 className="text-2xl font-bold mb-3">Desain Web Berperforma</h3>
                 <p className="text-muted-foreground mb-4">
-                  Lightning-fast, conversion-optimized websites built with cutting-edge technology.
+                  Website secepat kilat dan dioptimalkan untuk konversi, dibangun dengan teknologi terkini.
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
-                    <span>Responsive design</span>
+                    <span>Desain responsif</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
-                    <span>SEO optimized</span>
+                    <span>Optimasi SEO</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
-                    <span>Analytics setup</span>
+                    <span>Pengaturan analitik</span>
                   </li>
                 </ul>
               </div>
@@ -383,22 +383,22 @@ export default function Home({ params, searchParams }: HomeProps) {
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Palette className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">Curated Branding</h3>
+                <h3 className="text-2xl font-bold mb-3">Branding Pilihan</h3>
                 <p className="text-muted-foreground mb-4">
-                  Professional brand identity that sets you apart and builds customer trust.
+                  Identitas merek profesional yang membedakan Anda dari kompetitor dan membangun kepercayaan.
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
-                    <span>Logo design</span>
+                    <span>Desain logo</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
-                    <span>Brand guidelines</span>
+                    <span>Panduan merek (guidelines)</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
-                    <span>Marketing collateral</span>
+                    <span>Agunan pemasaran</span>
                   </li>
                 </ul>
               </div>
@@ -411,19 +411,19 @@ export default function Home({ params, searchParams }: HomeProps) {
       <section id="process" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Process</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Proses Kerja Kami</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Launch in 2 weeks with our streamlined 5-step process.
+              Luncurkan startup dalam 2 minggu dengan 5 langkah proses yang efisien.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {[
-              { step: 1, title: 'Discovery', desc: 'Understand your vision and goals' },
-              { step: 2, title: 'Strategy', desc: 'Create comprehensive launch plan' },
-              { step: 3, title: 'Production', desc: 'Build and design all assets' },
-              { step: 4, title: 'Review', desc: 'Iterate and optimize with feedback' },
-              { step: 5, title: 'Launch', desc: 'Go-to-market execution' },
+              { step: 1, title: 'Discovery', desc: 'Memahami visi dan tujuan Anda' },
+              { step: 2, title: 'Strategi', desc: 'Menyusun rencana peluncuran lengkap' },
+              { step: 3, title: 'Produksi', desc: 'Membangun dan mendesain semua aset' },
+              { step: 4, title: 'Review', desc: 'Iterasi dan optimasi berdasarkan feedback' },
+              { step: 5, title: 'Launch', desc: 'Eksekusi go-to-market' },
             ].map((item) => (
               <div key={item.step} className="relative">
                 <div className="p-6 rounded-xl bg-card/50 backdrop-blur border border-border/50 text-center">
@@ -515,53 +515,9 @@ export default function Home({ params, searchParams }: HomeProps) {
           <div
             id="pricing-cards"
             data-animate
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
           >
-            {/* Starter Bundle Card */}
-            <div
-              id="pricing-starter"
-              data-animate
-              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-emerald-400/50 hover:shadow-lg ${isVisible['pricing-starter'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-            >
-              <div className="absolute top-0 left-0 w-32 h-32 bg-emerald-400/10 rounded-full filter blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
 
-              <div className="relative">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Globe className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="px-3 py-1 bg-emerald-500/20 rounded-full border border-emerald-500/30">
-                    <span className="text-xs font-semibold text-emerald-300">Gratis Konsultasi</span>
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-bold mb-2">STARTER BUNDLE</h3>
-                <p className="text-sm text-muted-foreground mb-3">Lite Landing & Personal Website</p>
-                <div className="text-2xl font-bold text-primary mb-6">Mulai dari Rp 250.000</div>
-
-                <div className="space-y-3 mb-8">
-                  {[
-                    'Desain Web Modern',
-                    '1 Halaman + Bonus 1',
-                    'Free Hosting',
-                    'Revisi 2 Kali Minor',
-                    'CTA Optimization',
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                      <span className="text-sm text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <Button asChild variant="outline" className="w-full border-border/50 text-foreground hover:bg-emerald-500/10 rounded-full font-semibold bg-transparent">
-                  <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.starterBundle)} target="_blank" rel="noopener noreferrer">
-                    Pilih Paket Ini
-                  </a>
-                </Button>
-              </div>
-            </div>
             {/* Pitch Deck Card */}
             <div
               id="pricing-pitch"
@@ -633,7 +589,7 @@ export default function Home({ params, searchParams }: HomeProps) {
                     'Mobile First Approach',
                     'Copywriting & CTA',
                     'Basic SEO Setup',
-                    'Clean Code',
+                    'Clean Code (React/Next.js)',
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
@@ -654,75 +610,30 @@ export default function Home({ params, searchParams }: HomeProps) {
             <div
               id="pricing-visual"
               data-animate
-              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-secondary/50 hover:shadow-lg ${isVisible['pricing-visual'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-            >
-              <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full filter blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
-
-              <div className="relative">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <PenTool className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="px-3 py-1 bg-purple-500/20 rounded-full border border-purple-500/30">
-                    <span className="text-xs font-semibold text-purple-300">Best for New Brands</span>
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-bold mb-2">VISUAL IDENTITY (LOGO)</h3>
-                <div className="text-2xl font-bold text-primary mb-6">Mulai dari Rp 2.000.000</div>
-
-                <div className="space-y-3 mb-8">
-                  {[
-                    'Filosofi',
-                    '3 Konsep Logo',
-                    'Mockup Preview',
-                    '3 Revisi Mayor & Bebas Revisi Minor',
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                      <span className="text-sm text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <Button asChild variant="outline" className="w-full border-border/50 text-foreground hover:bg-secondary/10 rounded-full font-semibold bg-transparent">
-                  <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.visualIdentity)} target="_blank" rel="noopener noreferrer">
-                    Pilih Paket Ini
-                  </a>
-                </Button>
-              </div>
-            </div>
-
-            {/* Presentation Polishing & Design Card */}
-            <div
-              id="pricing-presentation"
-              data-animate
-              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-primary/50 hover:shadow-lg ${isVisible['pricing-presentation'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur overflow-hidden transform transition-all duration-700 hover:border-cyan-400/50 hover:shadow-lg ${isVisible['pricing-visual'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
             >
               <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-400/10 rounded-full filter blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
 
               <div className="relative">
                 <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Presentation className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Palette className="w-6 h-6 text-white" />
                   </div>
-                  <div className="px-3 py-1 bg-primary/20 rounded-full border border-primary/30">
-                    <span className="text-xs font-semibold text-cyan-300">Gratis Konsultasi</span>
+                  <div className="px-3 py-1 bg-cyan-400/20 rounded-full border border-cyan-400/30">
+                    <span className="text-xs font-semibold text-cyan-300">Full Brand Kit</span>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold mb-2">PRESENTATION POLISHING & DESIGN</h3>
-                <div className="text-2xl font-bold text-primary mb-6">Mulai dari Rp 150.000</div>
+                <h3 className="text-xl font-bold mb-2">CURATED VISUAL IDENTITY</h3>
+                <div className="text-2xl font-bold text-primary mb-6">Mulai dari Rp 2.000.000</div>
 
                 <div className="space-y-3 mb-8">
                   {[
-                    'Dokumen/paragraf menjadi poin-poin slide',
-                    'Menyusun alur presentasi agar lebih jelas dan rapi',
-                    'Desain slide profesional',
-                    '1x revisi',
-                    'File PDF + link Canva',
+                    'Professional Logo Design',
+                    'Color Palette System',
+                    'Typography Guidelines',
+                    'Social Media Assets',
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
@@ -732,12 +643,14 @@ export default function Home({ params, searchParams }: HomeProps) {
                 </div>
 
                 <Button asChild variant="outline" className="w-full border-border/50 text-foreground hover:bg-primary/10 rounded-full font-semibold bg-transparent">
-                  <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.presentationPolishing)} target="_blank" rel="noopener noreferrer">
+                  <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.visualIdentity)} target="_blank" rel="noopener noreferrer">
                     Pilih Paket Ini
                   </a>
                 </Button>
               </div>
             </div>
+
+
           </div>
         </div>
       </section>
@@ -752,7 +665,7 @@ export default function Home({ params, searchParams }: HomeProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex items-center justify-center">
             {/* Portfolio Item - Gemitra */}
             <a
               href="https://gemitra.com"
@@ -802,17 +715,60 @@ export default function Home({ params, searchParams }: HomeProps) {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/20 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Apa Kata Mereka</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Kepercayaan klien adalah prioritas utama kami. Berikut adalah testimoni dari mereka yang telah bekerjasama dengan kami.
+            </p>
+          </div>
+
+          <div
+            id="testimonials-grid"
+            data-animate
+            className="flex items-center justify-center"
+          >
+            {[
+              {
+                name: "Farrel",
+                rating: 5,
+                comment: "Dengan harga 3,5 jt dibuatkan website sesuai yang didiskusikan alhasil mengarahkan calon client ke whatsapp dan SEO-nya langsung nomor 1 di pencarian"
+              }
+            ].map((testimonial, index) => (
+              <div
+                key={index}
+                className={`p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-md transition-all duration-700 hover:border-primary/50 ${isVisible['testimonials'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Sparkles
+                      key={i}
+                      className={`w-4 h-4 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground'}`}
+                    />
+                  ))}
+                </div>
+                <p className="text-foreground mb-6 italic">"{testimonial.comment}"</p>
+                <div className="font-bold text-primary">{testimonial.name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Launch Your Startup?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Siap Meluncurkan Startup Anda?</h2>
           <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-            Join 150+ founders who transformed their vision into reality. Let's build something extraordinary together.
+            Bergabunglah dengan 150+ founder yang telah mengubah visi mereka menjadi realitas. Mari ciptakan sesuatu yang luar biasa bersama.
           </p>
 
           <Button asChild className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-background font-semibold px-8 py-6 rounded-full text-base">
             <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.consultation)} target="_blank" rel="noopener noreferrer">
-              Chat Kami di WhatsApp
+              Hubungi Kami di WhatsApp
               <MessageCircle className="w-4 h-4 ml-2" />
             </a>
           </Button>
@@ -829,27 +785,27 @@ export default function Home({ params, searchParams }: HomeProps) {
                 <span className="font-bold">Toko Desain</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Transforming founder dreams into market reality.
+                Mengubah mimpi founder menjadi realitas pasar.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
+              <h4 className="font-semibold mb-4">Layanan</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="#" className="hover:text-primary">Pitch Deck</a></li>
-                <li><a href="#" className="hover:text-primary">Web Design</a></li>
+                <li><a href="#" className="hover:text-primary">Desain Web</a></li>
                 <li><a href="#" className="hover:text-primary">Branding</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Resources</h4>
+              <h4 className="font-semibold mb-4">Sumber Daya</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="#" className="hover:text-primary">Blog</a></li>
-                <li><a href="#" className="hover:text-primary">Case Studies</a></li>
-                <li><a href="#" className="hover:text-primary">Contact</a></li>
+                <li><a href="#" className="hover:text-primary">Studi Kasus</a></li>
+                <li><a href="#" className="hover:text-primary">Kontak</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Connect</h4>
+              <h4 className="font-semibold mb-4">Terhubung</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="#" className="hover:text-primary">LinkedIn</a></li>
                 <li><a href="#" className="hover:text-primary">Twitter</a></li>
@@ -859,10 +815,10 @@ export default function Home({ params, searchParams }: HomeProps) {
           </div>
 
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-            <p>&copy; 2024 Toko Desain. All rights reserved.</p>
+            <p>&copy; 2024 Toko Desain. Seluruh hak cipta dilindungi.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-primary">Privacy Policy</a>
-              <a href="#" className="hover:text-primary">Terms of Service</a>
+              <a href="#" className="hover:text-primary">Kebijakan Privasi</a>
+              <a href="#" className="hover:text-primary">Syarat & Ketentuan</a>
             </div>
           </div>
         </div>
